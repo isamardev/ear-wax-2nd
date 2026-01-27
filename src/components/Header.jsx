@@ -35,48 +35,76 @@ const Header = () => {
 
   return (
     <>
-      <motion.header 
+      <motion.header
         initial={{ y: 0 }}
         animate={{ y: visible ? 0 : -100 }}
-        transition={{ duration: 0.3, ease: "easeInOut" }}
+        transition={{ duration: 0.3, ease: 'easeInOut' }}
         className="fixed top-0 left-0 right-0 z-50 w-full"
       >
-        <div className={`transition-all duration-300 ${scrolled ? 'py-2' : 'py-3 sm:py-4'}`}>
-          <div className="max-w-7xl mx-auto px-4">
-            <div className="bg-white/20 backdrop-blur-2xl border border-white/30 rounded-2xl shadow-xl px-4 sm:px-6 py-3 flex justify-between items-center">
-              <div className="flex items-center gap-3 sm:gap-8 min-w-0">
-                <Link to="/" className="flex items-center gap-2 flex-shrink-0">
-                  <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-apollo-orange to-apollo-darkOrange rounded-2xl flex items-center justify-center shadow-lg shadow-apollo-orange/30">
-                    <FaEarListen className="text-white text-base sm:text-xl" />
-                  </div>
-                  <span className="text-lg sm:text-2xl font-bold bg-gradient-to-r from-apollo-orange to-apollo-darkOrange bg-clip-text text-transparent truncate max-w-[120px] sm:max-w-none">Ear wax</span>
-                </Link>
-                
-                <nav className="hidden lg:flex gap-6 text-sm font-bold text-gray-700 uppercase tracking-tight">
-                  {navLinks.map((link) => (
-                    <Link key={link.name} to={link.href} className="hover:text-apollo-orange transition-colors whitespace-nowrap">{link.name}</Link>
-                  ))}
-                </nav>
-              </div>
+        <div
+          className={`transition-all duration-300 ${
+            scrolled ? 'py-2 bg-white/70 backdrop-blur-xl shadow-sm' : 'py-3 sm:py-4 bg-transparent'
+          }`}
+        >
+          <div className="max-w-6xl mx-auto px-4">
+            <div className="flex items-center justify-between gap-3">
+              {/* Logo */}
+              <Link to="/" className="flex items-center gap-2 flex-shrink-0">
+                <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-apollo-orange to-apollo-darkOrange rounded-2xl flex items-center justify-center shadow-lg shadow-apollo-orange/30">
+                  <FaEarListen className="text-white text-base sm:text-xl" />
+                </div>
+                <span className="text-lg sm:text-2xl font-extrabold bg-gradient-to-r from-apollo-orange via-amber-400 to-apollo-darkOrange bg-clip-text text-transparent tracking-tight">
+                  Ear wax
+                </span>
+              </Link>
 
-              <div className="flex items-center gap-2 sm:gap-4 flex-shrink-0 min-w-0">
-                <button className="hidden md:flex items-center gap-2 px-3 lg:px-4 py-2 text-apollo-orange font-bold text-sm whitespace-nowrap bg-white/30 backdrop-blur-md rounded-xl border border-white/50">
-                  <FaPhone className="text-xs" /> 0161 513 9011
-                </button>
-                <Link to="/book">
-                    <motion.button 
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="bg-gradient-to-r from-apollo-orange to-apollo-darkOrange text-white px-3 sm:px-6 py-2 rounded-full font-bold text-[11px] sm:text-sm shadow-lg shadow-apollo-orange/40 whitespace-nowrap flex-shrink-0"
+              {/* Center nav + actions (relocated buttons) */}
+              <nav className="hidden lg:flex flex-1 justify-center">
+                <div className="inline-flex items-center gap-4 px-3 py-1.5 rounded-full bg-white/70 backdrop-blur-xl border border-white/80 shadow-md">
+                  {/* Links */}
+                  {navLinks.map((link) => (
+                    <Link
+                      key={link.name}
+                      to={link.href}
+                      className="text-xs sm:text-sm font-semibold text-gray-800 hover:text-apollo-orange transition-colors whitespace-nowrap"
                     >
-                    Book Now
+                      {link.name}
+                    </Link>
+                  ))}
+
+                  {/* Divider */}
+                  <span className="mx-1 h-5 w-px bg-gray-300/60" />
+
+                  {/* Call */}
+                  <a
+                    href="tel:01615139011"
+                    className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/80 hover:bg-white border border-white/80 shadow-sm text-xs sm:text-sm font-bold text-gray-900 transition-colors whitespace-nowrap"
+                  >
+                    <FaPhone className="text-apollo-orange text-xs" />
+                    0161 513 9011
+                  </a>
+
+                  {/* Book */}
+                  <Link to="/book" className="pl-1">
+                    <motion.button
+                      whileHover={{ scale: 1.04 }}
+                      whileTap={{ scale: 0.97 }}
+                      className="bg-gradient-to-r from-apollo-orange to-apollo-darkOrange text-white px-4 py-1.5 rounded-full font-bold text-xs sm:text-sm shadow-md shadow-apollo-orange/30 whitespace-nowrap"
+                    >
+                      Book now
                     </motion.button>
-                </Link>
-                <button 
-                  className="lg:hidden p-1.5 sm:p-2 text-apollo-orange bg-white/30 backdrop-blur-md rounded-xl border border-white/50 transition-colors flex-shrink-0"
+                  </Link>
+                </div>
+              </nav>
+
+              {/* Right actions (mobile only) */}
+              <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0">
+                {/* Mobile menu button */}
+                <button
+                  className="lg:hidden p-1.5 sm:p-2 text-apollo-orange bg-white/80 backdrop-blur-md rounded-full border border-white/80 shadow-sm"
                   onClick={() => setMobileMenuOpen(true)}
                 >
-                  <FaBars className="text-lg sm:text-2xl" />
+                  <FaBars className="text-lg sm:text-xl" />
                 </button>
               </div>
             </div>

@@ -23,9 +23,9 @@ function App() {
   return (
     <Router>
       <ScrollToTop />
-      <div className="min-h-screen bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50 font-sans text-gray-900">
-        <Header />
-        <main>
+    <div className="min-h-screen bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50 font-sans text-gray-900">
+      <Header />
+      <main>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/book" element={<Booking />} />
@@ -50,9 +50,9 @@ function App() {
             <Route path="/cookie-policy" element={<GenericPage title="Cookie Policy" />} />
             <Route path="/finance-terms" element={<GenericPage title="Finance Terms" />} />
           </Routes>
-        </main>
-        <Footer />
-      </div>
+      </main>
+      <Footer />
+    </div>
     </Router>
   );
 }

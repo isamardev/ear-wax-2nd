@@ -40,7 +40,7 @@ const Footer = () => {
             <h4 className="font-bold text-xl text-white mb-8 relative inline-block">
               Quick Links
               <span className="absolute -bottom-2 left-0 w-12 h-1 bg-apollo-orange rounded-full" />
-            </h4>
+               </h4>
             <ul className="space-y-4">
               {[
                 {name: 'Home', path: '/'},
@@ -55,17 +55,17 @@ const Footer = () => {
                     <span className="w-1.5 h-1.5 bg-apollo-orange rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span>
                     {link.name}
                   </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+                   </li>
+                 ))}
+               </ul>
+             </div>
 
           {/* Services */}
           <div>
             <h4 className="font-bold text-xl text-white mb-8 relative inline-block">
               Our Services
               <span className="absolute -bottom-2 left-0 w-12 h-1 bg-apollo-orange rounded-full" />
-            </h4>
+              </h4>
             <ul className="space-y-4">
               {[
                 {name: 'Microsuction Removal', path: '/wax-removal'},
@@ -79,10 +79,10 @@ const Footer = () => {
                     <span className="w-1.5 h-1.5 bg-apollo-orange rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span>
                     {link.name}
                   </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
           {/* Contact Info */}
           <div>
