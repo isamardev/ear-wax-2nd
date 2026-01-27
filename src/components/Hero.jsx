@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { HiArrowRight, HiSparkles, HiCheckBadge, HiPhone, HiClock } from 'react-icons/hi2';
 import { FaEarListen } from 'react-icons/fa6';
+import { Link } from 'react-router-dom';
 
 const Hero = () => {
   return (
@@ -62,17 +63,17 @@ const Hero = () => {
 
             {/* CTA Buttons - Stack on Mobile */}
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 items-center lg:items-start">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.98 }}
-                transition={{ duration: 0.2 }}
-                className="group w-full sm:w-auto bg-gradient-to-r from-apollo-orange to-apollo-darkOrange text-white px-6 sm:px-8 py-3.5 sm:py-4 rounded-2xl font-bold text-sm sm:text-base shadow-xl shadow-apollo-orange/30 hover:shadow-2xl hover:shadow-apollo-orange/40 transition-shadow"
-              >
-                <span className="flex items-center justify-center gap-2">
-                  Book Now - £65
-                  <HiArrowRight className="text-lg sm:text-xl group-hover:translate-x-1 transition-transform" />
-                </span>
-              </motion.button>
+              <Link to="/book" className="w-full sm:w-auto">
+                <motion.div
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.98 }}
+                    transition={{ duration: 0.2 }}
+                    className="group bg-gradient-to-r from-apollo-orange to-apollo-darkOrange text-white px-6 sm:px-8 py-3.5 sm:py-4 rounded-2xl font-bold text-sm sm:text-base shadow-xl shadow-apollo-orange/30 hover:shadow-2xl hover:shadow-apollo-orange/40 transition-shadow flex items-center justify-center gap-2"
+                >
+                    Book Now - £65
+                    <HiArrowRight className="text-lg sm:text-xl group-hover:translate-x-1 transition-transform" />
+                </motion.div>
+              </Link>
 
               <motion.a
                 href="tel:01615139011"
@@ -160,16 +161,16 @@ const Hero = () => {
                 </div>
               </div>
 
-              {/* Locations Card */}
+              {/* Satisfaction Card (Replaces Locations) */}
               <div className="col-span-2 relative group">
                 <div className="absolute -inset-0.5 bg-gradient-to-r from-amber-400 to-orange-400 rounded-2xl blur opacity-30 group-hover:opacity-50 transition-opacity" />
                 <div className="relative h-full bg-white/60 backdrop-blur-xl rounded-2xl border border-white/70 p-4 shadow-xl flex items-center justify-between gap-3">
                   <div>
-                    <p className="text-2xl font-black text-gray-900 mb-0.5">6 Locations</p>
-                    <p className="text-xs text-gray-600 font-medium">Greater Manchester</p>
+                    <p className="text-xl font-black text-gray-900 mb-0.5">Satisfaction Guaranteed</p>
+                    <p className="text-xs text-gray-600 font-medium">Safe & Effective</p>
                   </div>
                   <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-apollo-orange to-apollo-darkOrange flex items-center justify-center text-white text-xl shadow-lg flex-shrink-0">
-                    📍
+                    <HiCheckBadge />
                   </div>
                 </div>
               </div>

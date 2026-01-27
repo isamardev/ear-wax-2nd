@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { FaStar, FaQuoteLeft } from 'react-icons/fa6';
 import { HiArrowRight, HiSparkles } from 'react-icons/hi2';
 
@@ -20,7 +21,7 @@ const NewsSection = () => {
       rating: 5
     },
     { 
-      title: 'I had an appointment today at Love My Ears in Sale Manchester. Smooth and pain free...', 
+      title: 'I had an appointment today. Smooth and pain free...', 
       name: 'Andy R', 
       date: 'January 9, 2024', 
       img: 'https://i.pravatar.cc/150?img=12',
@@ -56,17 +57,19 @@ const NewsSection = () => {
             <p className="text-lg text-gray-600">See what our patients say about us</p>
           </motion.div>
 
-          <motion.button
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.98 }}
-            className="group flex items-center gap-3 bg-white/60 backdrop-blur-xl border border-white/80 text-apollo-orange font-bold px-6 py-3 rounded-2xl hover:bg-white/80 transition-all shadow-lg"
-          >
-            Read All Reviews
-            <HiArrowRight className="text-lg group-hover:translate-x-1 transition-transform" />
-          </motion.button>
+          <Link to="/reviews">
+            <motion.button
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.98 }}
+              className="group flex items-center gap-3 bg-white/60 backdrop-blur-xl border border-white/80 text-apollo-orange font-bold px-6 py-3 rounded-2xl hover:bg-white/80 transition-all shadow-lg"
+            >
+              Read All Reviews
+              <HiArrowRight className="text-lg group-hover:translate-x-1 transition-transform" />
+            </motion.button>
+          </Link>
         </div>
 
         {/* Reviews Grid */}
@@ -154,7 +157,7 @@ const NewsSection = () => {
                 { number: '10,000+', label: 'Happy Patients' },
                 { number: '4.9★', label: 'Average Rating' },
                 { number: '15min', label: 'Quick Service' },
-                { number: '6', label: 'Clinic Locations' }
+                { number: '100%', label: 'Satisfaction' }
               ].map((stat, i) => (
                 <motion.div
                   key={i}

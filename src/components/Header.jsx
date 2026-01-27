@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaEarListen, FaPhone, FaBars, FaXmark } from 'react-icons/fa6';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -26,10 +27,10 @@ const Header = () => {
   }, [lastScrollY]);
 
   const navLinks = [
-    { name: 'Wax Removal', href: '#' },
-    { name: 'Our Process', href: '#' },
-    { name: 'Locations', href: '#' },
-    { name: 'About Us', href: '#' },
+    { name: 'Wax Removal', href: '/wax-removal' },
+    { name: 'Our Process', href: '/our-process' },
+    { name: 'Contact', href: '/contact' },
+    { name: 'About Us', href: '/about-us' },
   ];
 
   return (
@@ -44,16 +45,16 @@ const Header = () => {
           <div className="max-w-7xl mx-auto px-4">
             <div className="bg-white/20 backdrop-blur-2xl border border-white/30 rounded-2xl shadow-xl px-4 sm:px-6 py-3 flex justify-between items-center">
               <div className="flex items-center gap-3 sm:gap-8 min-w-0">
-                <div className="flex items-center gap-2 flex-shrink-0">
+                <Link to="/" className="flex items-center gap-2 flex-shrink-0">
                   <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-apollo-orange to-apollo-darkOrange rounded-2xl flex items-center justify-center shadow-lg shadow-apollo-orange/30">
                     <FaEarListen className="text-white text-base sm:text-xl" />
                   </div>
                   <span className="text-lg sm:text-2xl font-bold bg-gradient-to-r from-apollo-orange to-apollo-darkOrange bg-clip-text text-transparent truncate max-w-[120px] sm:max-w-none">Ear wax</span>
-                </div>
+                </Link>
                 
                 <nav className="hidden lg:flex gap-6 text-sm font-bold text-gray-700 uppercase tracking-tight">
                   {navLinks.map((link) => (
-                    <a key={link.name} href={link.href} className="hover:text-apollo-orange transition-colors whitespace-nowrap">{link.name}</a>
+                    <Link key={link.name} to={link.href} className="hover:text-apollo-orange transition-colors whitespace-nowrap">{link.name}</Link>
                   ))}
                 </nav>
               </div>
@@ -62,13 +63,15 @@ const Header = () => {
                 <button className="hidden md:flex items-center gap-2 px-3 lg:px-4 py-2 text-apollo-orange font-bold text-sm whitespace-nowrap bg-white/30 backdrop-blur-md rounded-xl border border-white/50">
                   <FaPhone className="text-xs" /> 0161 513 9011
                 </button>
-                <motion.button 
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="bg-gradient-to-r from-apollo-orange to-apollo-darkOrange text-white px-3 sm:px-6 py-2 rounded-full font-bold text-[11px] sm:text-sm shadow-lg shadow-apollo-orange/40 whitespace-nowrap flex-shrink-0"
-                >
-                  Book Now
-                </motion.button>
+                <Link to="/book">
+                    <motion.button 
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="bg-gradient-to-r from-apollo-orange to-apollo-darkOrange text-white px-3 sm:px-6 py-2 rounded-full font-bold text-[11px] sm:text-sm shadow-lg shadow-apollo-orange/40 whitespace-nowrap flex-shrink-0"
+                    >
+                    Book Now
+                    </motion.button>
+                </Link>
                 <button 
                   className="lg:hidden p-1.5 sm:p-2 text-apollo-orange bg-white/30 backdrop-blur-md rounded-xl border border-white/50 transition-colors flex-shrink-0"
                   onClick={() => setMobileMenuOpen(true)}
@@ -107,22 +110,24 @@ const Header = () => {
               </div>
               <nav className="flex flex-col gap-4">
                 {navLinks.map((link) => (
-                  <a 
+                  <Link 
                     key={link.name} 
-                    href={link.href} 
+                    to={link.href} 
                     className="text-lg font-bold text-gray-800 bg-white/30 backdrop-blur-md border border-white/40 rounded-2xl px-6 py-3 hover:bg-white/50 transition-all"
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     {link.name}
-                  </a>
+                  </Link>
                 ))}
                 <div className="mt-4 pt-6 flex flex-col gap-4 border-t border-white/30">
                   <div className="flex items-center gap-3 text-apollo-orange font-bold bg-white/30 backdrop-blur-md border border-white/40 rounded-2xl px-6 py-3">
                     <FaPhone /> 0161 513 9011
                   </div>
-                  <button className="bg-gradient-to-r from-apollo-orange to-apollo-darkOrange text-white w-full py-4 rounded-2xl font-bold text-lg shadow-xl shadow-apollo-orange/40">
-                    Book Appointment Now
-                  </button>
+                  <Link to="/book" onClick={() => setMobileMenuOpen(false)}>
+                      <button className="bg-gradient-to-r from-apollo-orange to-apollo-darkOrange text-white w-full py-4 rounded-2xl font-bold text-lg shadow-xl shadow-apollo-orange/40">
+                        Book Appointment Now
+                      </button>
+                  </Link>
                 </div>
               </nav>
             </motion.div>

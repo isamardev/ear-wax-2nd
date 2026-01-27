@@ -11,7 +11,7 @@ export default {
       },
       colors: {
         apollo: {
-          orange: '#F7941D',
+          orange: '#EC8B17',
           darkOrange: '#D67A0D',
           navy: '#1a1a2e',
           glass: {

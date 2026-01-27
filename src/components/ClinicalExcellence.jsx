@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { FaEarListen, FaDroplet, FaChildReaching, FaCircleCheck, FaLightbulb, FaUserDoctor } from 'react-icons/fa6';
 import { HiArrowRight, HiSparkles } from 'react-icons/hi2';
 
@@ -15,24 +16,18 @@ const tabContent = {
     description: 'Book online or call us, arrive at your chosen clinic, and our expert audiologists will safely remove ear wax in just 15-20 minutes. Walk out with clearer hearing immediately.',
     image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80',
     features: ['Book Online', 'Quick Visit', 'Immediate Relief', 'Follow-up Care']
-  },
-  'Locations': {
-    title: '6 Convenient Locations',
-    description: 'With clinics across Greater Manchester including city centre, Sale, Bury, Bolton, Oldham, and Sheffield, professional ear care is always nearby. Most locations open 7 days a week.',
-    image: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800&q=80',
-    features: ['Manchester', 'Sale', 'Bury', 'Bolton']
   }
 };
 
 const services = [
-  { name: 'Microsuction', icon: <FaEarListen />, desc: 'Gold standard' },
-  { name: 'Ear Irrigation', icon: <FaDroplet />, desc: 'Water removal' },
-  { name: 'Children (5+)', icon: <FaChildReaching />, desc: 'Safe for kids' },
-  { name: 'Same Day', icon: <FaCircleCheck />, desc: 'Fast service' },
-  { name: 'No Oil Needed', icon: <FaLightbulb />, desc: 'No prep' },
-  { name: 'Aftercare', icon: <FaCircleCheck />, desc: 'Free advice' },
-  { name: 'Expert Team', icon: <FaUserDoctor />, desc: 'HCPC certified' },
-  { name: 'See All', icon: <HiArrowRight />, desc: 'More info' },
+  { name: 'Microsuction', icon: <FaEarListen />, desc: 'Gold standard', path: '/wax-removal' },
+  { name: 'Ear Irrigation', icon: <FaDroplet />, desc: 'Water removal', path: '/ear-irrigation' },
+  { name: 'Children (5+)', icon: <FaChildReaching />, desc: 'Safe for kids', path: '/childrens-ear-care' },
+  { name: 'Same Day', icon: <FaCircleCheck />, desc: 'Fast service', path: '/same-day-appointments' },
+  { name: 'No Oil Needed', icon: <FaLightbulb />, desc: 'No prep', path: '/wax-removal' },
+  { name: 'Aftercare', icon: <FaCircleCheck />, desc: 'Free advice', path: '/wax-removal' },
+  { name: 'Expert Team', icon: <FaUserDoctor />, desc: 'HCPC certified', path: '/about-us' },
+  { name: 'See All', icon: <HiArrowRight />, desc: 'More info', path: '/wax-removal' },
 ];
 
 const ClinicalExcellence = () => {
@@ -157,14 +152,16 @@ const ClinicalExcellence = () => {
                 ))}
               </div>
 
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.98 }}
-                className="group flex items-center gap-3 bg-gradient-to-r from-apollo-orange to-apollo-darkOrange text-white px-8 py-4 rounded-2xl font-bold shadow-xl shadow-apollo-orange/40"
-              >
-                Book This Service
-                <HiArrowRight className="text-xl group-hover:translate-x-1 transition-transform" />
-              </motion.button>
+              <Link to="/book" className="my-8 inline-block">
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="group flex items-center gap-3 bg-gradient-to-r from-apollo-orange to-apollo-darkOrange text-white px-8 py-4 rounded-2xl font-bold shadow-xl shadow-apollo-orange/40"
+                >
+                  Book This Service
+                  <HiArrowRight className="text-xl group-hover:translate-x-1 transition-transform" />
+                </motion.button>
+              </Link>
             </div>
           </motion.div>
         </AnimatePresence>
@@ -172,24 +169,25 @@ const ClinicalExcellence = () => {
         {/* Services Grid */}
         <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-4">
           {services.map((service, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.05 }}
-              whileHover={{ y: -8, scale: 1.05 }}
-              className="group relative"
-            >
-              <div className="absolute -inset-1 bg-gradient-to-r from-apollo-orange to-amber-400 rounded-2xl blur opacity-0 group-hover:opacity-40 transition-opacity" />
-              <div className="relative bg-white/50 backdrop-blur-2xl p-4 border border-white/60 rounded-2xl text-center cursor-pointer shadow-lg hover:shadow-xl transition-all">
-                <div className="text-3xl mb-2 flex justify-center text-apollo-orange group-hover:scale-110 transition-transform">
-                  {service.icon}
+            <Link to={service.path} key={i}>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.05 }}
+                whileHover={{ y: -8, scale: 1.05 }}
+                className="group relative"
+              >
+                <div className="absolute -inset-1 bg-gradient-to-r from-apollo-orange to-amber-400 rounded-2xl blur opacity-0 group-hover:opacity-40 transition-opacity" />
+                <div className="relative bg-white/50 backdrop-blur-2xl p-4 border border-white/60 rounded-2xl text-center cursor-pointer shadow-lg hover:shadow-xl transition-all">
+                  <div className="text-3xl mb-2 flex justify-center text-apollo-orange group-hover:scale-110 transition-transform">
+                    {service.icon}
+                  </div>
+                  <div className="text-xs font-bold text-gray-900 mb-1">{service.name}</div>
+                  <div className="text-[10px] text-gray-600">{service.desc}</div>
                 </div>
-                <div className="text-xs font-bold text-gray-900 mb-1">{service.name}</div>
-                <div className="text-[10px] text-gray-600">{service.desc}</div>
-              </div>
-            </motion.div>
+              </motion.div>
+            </Link>
           ))}
         </div>
       </div>

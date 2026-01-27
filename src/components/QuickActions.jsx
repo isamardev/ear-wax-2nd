@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaEarListen, FaLocationDot, FaUserDoctor, FaStar } from 'react-icons/fa6';
+import { Link } from 'react-router-dom';
+import { FaEarListen, FaUserDoctor, FaStar } from 'react-icons/fa6';
 import { HiArrowRight, HiClock, HiShieldCheck, HiSparkles } from 'react-icons/hi2';
 
 const actions = [
@@ -12,17 +13,19 @@ const actions = [
     badge: '£65',
     stat: '10K+ Done',
     color: 'from-orange-500 to-amber-500',
-    bgPattern: 'from-orange-400/20 to-amber-300/20'
+    bgPattern: 'from-orange-400/20 to-amber-300/20',
+    link: '/wax-removal'
   },
   { 
     title: 'Same Day', 
     subtitle: 'Fast Service',
-    desc: 'Book today and get seen today at 6 locations',
+    desc: 'Book today and get seen today',
     icon: <HiClock />, 
     badge: 'Today',
     stat: '15 Minutes',
     color: 'from-amber-500 to-yellow-500',
-    bgPattern: 'from-amber-400/20 to-yellow-300/20'
+    bgPattern: 'from-amber-400/20 to-yellow-300/20',
+    link: '/same-day-appointments'
   },
   { 
     title: 'Expert Team', 
@@ -32,7 +35,8 @@ const actions = [
     badge: 'HCPC',
     stat: 'Certified',
     color: 'from-yellow-500 to-orange-500',
-    bgPattern: 'from-yellow-400/20 to-orange-300/20'
+    bgPattern: 'from-yellow-400/20 to-orange-300/20',
+    link: '/about-us'
   },
   { 
     title: 'Top Rated', 
@@ -42,7 +46,8 @@ const actions = [
     badge: '4.9★',
     stat: '10K Reviews',
     color: 'from-orange-500 to-amber-500',
-    bgPattern: 'from-orange-400/20 to-amber-400/20'
+    bgPattern: 'from-orange-400/20 to-amber-400/20',
+    link: '/reviews'
   },
 ];
 
@@ -53,82 +58,83 @@ const QuickActions = () => {
         {/* Cards Grid - Unique Asymmetric Layout */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {actions.map((action, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ 
-                delay: i * 0.1, 
-                duration: 0.4 
-              }}
-              whileHover={{ 
-                y: -8, 
-                scale: 1.02,
-                transition: { duration: 0.2 }
-              }}
-              className="group relative"
-              style={{ 
-                perspective: '1000px',
-                transformStyle: 'preserve-3d'
-              }}
-            >
-              {/* Static Glow */}
-              <div className={`absolute -inset-2 bg-gradient-to-r ${action.color} rounded-[2rem] blur-xl opacity-20 group-hover:opacity-40 transition-opacity pointer-events-none`} />
-              
-              {/* Main Card */}
-              <div className={`relative h-full bg-gradient-to-br ${action.bgPattern} backdrop-blur-3xl rounded-[2rem] border border-white/60 shadow-2xl overflow-hidden`}>
-                {/* Decorative Elements */}
-                <div className="absolute -right-8 -top-8 w-32 h-32 bg-white/10 rounded-full blur-2xl" />
-                <div className="absolute -left-8 -bottom-8 w-32 h-32 bg-white/10 rounded-full blur-2xl" />
+            <Link to={action.link} key={i} className="block h-full">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ 
+                  delay: i * 0.1, 
+                  duration: 0.4 
+                }}
+                whileHover={{ 
+                  y: -8, 
+                  scale: 1.02,
+                  transition: { duration: 0.2 }
+                }}
+                className="group relative h-full"
+                style={{ 
+                  perspective: '1000px',
+                  transformStyle: 'preserve-3d'
+                }}
+              >
+                {/* Static Glow */}
+                <div className={`absolute -inset-2 bg-gradient-to-r ${action.color} rounded-[2rem] blur-xl opacity-20 group-hover:opacity-40 transition-opacity pointer-events-none`} />
                 
-                {/* Shine Effect */}
-                <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+                {/* Main Card */}
+                <div className={`relative h-full bg-gradient-to-br ${action.bgPattern} backdrop-blur-3xl rounded-[2rem] border border-white/60 shadow-2xl overflow-hidden`}>
+                  {/* Decorative Elements */}
+                  <div className="absolute -right-8 -top-8 w-32 h-32 bg-white/10 rounded-full blur-2xl" />
+                  <div className="absolute -left-8 -bottom-8 w-32 h-32 bg-white/10 rounded-full blur-2xl" />
+                  
+                  {/* Shine Effect */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
 
-                <div className="relative p-6 sm:p-7 flex flex-col h-full">
-                  {/* Header Section */}
-                  <div className="flex items-start justify-between mb-6">
-                    {/* Icon */}
-                    <div className={`relative w-16 h-16 rounded-2xl bg-gradient-to-br ${action.color} flex items-center justify-center text-white text-2xl shadow-xl group-hover:scale-110 transition-transform duration-200`}>
-                      <div className="absolute inset-0 rounded-2xl bg-white/20 backdrop-blur-sm pointer-events-none" />
-                      <span className="relative z-10">{action.icon}</span>
+                  <div className="relative p-6 sm:p-7 flex flex-col h-full">
+                    {/* Header Section */}
+                    <div className="flex items-start justify-between mb-6">
+                      {/* Icon */}
+                      <div className={`relative w-16 h-16 rounded-2xl bg-gradient-to-br ${action.color} flex items-center justify-center text-white text-2xl shadow-xl group-hover:scale-110 transition-transform duration-200`}>
+                        <div className="absolute inset-0 rounded-2xl bg-white/20 backdrop-blur-sm pointer-events-none" />
+                        <span className="relative z-10">{action.icon}</span>
+                      </div>
+
+                      {/* Badge */}
+                      <div className="px-3 py-2 bg-white/70 backdrop-blur-xl border border-white rounded-xl text-xs font-black text-apollo-orange shadow-lg">
+                        {action.badge}
+                      </div>
                     </div>
 
-                    {/* Badge */}
-                    <div className="px-3 py-2 bg-white/70 backdrop-blur-xl border border-white rounded-xl text-xs font-black text-apollo-orange shadow-lg">
-                      {action.badge}
-                    </div>
-                  </div>
-
-                  {/* Content */}
-                  <div className="flex-1 space-y-3">
-                    <div>
-                      <h3 className="text-2xl font-black text-gray-900 mb-1 group-hover:text-apollo-orange transition-colors">
-                        {action.title}
-                      </h3>
-                      <p className="text-sm font-bold text-apollo-orange">
-                        {action.subtitle}
+                    {/* Content */}
+                    <div className="flex-1 space-y-3">
+                      <div>
+                        <h3 className="text-2xl font-black text-gray-900 mb-1 group-hover:text-apollo-orange transition-colors">
+                          {action.title}
+                        </h3>
+                        <p className="text-sm font-bold text-apollo-orange">
+                          {action.subtitle}
+                        </p>
+                      </div>
+                      
+                      <p className="text-sm text-gray-700 leading-relaxed font-medium">
+                        {action.desc}
                       </p>
                     </div>
-                    
-                    <p className="text-sm text-gray-700 leading-relaxed font-medium">
-                      {action.desc}
-                    </p>
-                  </div>
 
-                  {/* Footer Section */}
-                  <div className="mt-6 pt-4 border-t border-white/50 flex items-center justify-between">
-                    <div className="flex items-center gap-2 text-gray-800">
-                      <HiSparkles className="text-apollo-orange" />
-                      <span className="text-xs font-bold">{action.stat}</span>
-                    </div>
-                    
-                    <div className="w-10 h-10 rounded-xl bg-white/60 backdrop-blur-xl border border-white flex items-center justify-center text-apollo-orange shadow-lg cursor-pointer group-hover:translate-x-1 transition-transform duration-200">
-                      <HiArrowRight className="text-lg" />
+                    {/* Footer Section */}
+                    <div className="mt-6 pt-4 border-t border-white/50 flex items-center justify-between">
+                      <div className="flex items-center gap-2 text-gray-800">
+                        <HiSparkles className="text-apollo-orange" />
+                        <span className="text-xs font-bold">{action.stat}</span>
+                      </div>
+                      
+                      <div className="w-10 h-10 rounded-xl bg-white/60 backdrop-blur-xl border border-white flex items-center justify-center text-apollo-orange shadow-lg cursor-pointer group-hover:translate-x-1 transition-transform duration-200">
+                        <HiArrowRight className="text-lg" />
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            </motion.div>
+              </motion.div>
+            </Link>
           ))}
         </div>
 
@@ -168,14 +174,16 @@ const QuickActions = () => {
                   Same-day service available. Don't let ear wax affect your hearing any longer.
                 </p>
 
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="group bg-white text-apollo-orange px-8 py-4 rounded-2xl font-bold text-lg shadow-2xl flex items-center gap-3 hover:bg-gray-50 transition-colors"
-                >
-                  Book Online Now
-                  <HiArrowRight className="text-2xl group-hover:translate-x-2 transition-transform" />
-                </motion.button>
+                <Link to="/book">
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="group bg-white text-apollo-orange px-8 py-4 rounded-2xl font-bold text-lg shadow-2xl flex items-center gap-3 hover:bg-gray-50 transition-colors"
+                  >
+                    Book Online Now
+                    <HiArrowRight className="text-2xl group-hover:translate-x-2 transition-transform" />
+                  </motion.button>
+                </Link>
               </div>
             </div>
 
@@ -188,7 +196,7 @@ const QuickActions = () => {
                   { icon: <HiShieldCheck />, value: 'HCPC', label: 'Registered' },
                   { icon: <HiClock />, value: '15min', label: 'Quick Service' },
                   { icon: <FaStar />, value: '4.9★', label: 'Top Rated' },
-                  { icon: <FaLocationDot />, value: '6', label: 'Locations' }
+                  { icon: <FaUserDoctor />, value: 'Expert', label: 'Care' }
                 ].map((stat, i) => (
                   <motion.div
                     key={i}
