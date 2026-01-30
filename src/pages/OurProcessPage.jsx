@@ -112,7 +112,7 @@ const OurProcessPage = () => {
             </p>
             <Link to="/book">
               <button className="bg-white text-apollo-navy px-10 py-4 rounded-xl font-bold text-lg hover:scale-105 transition-transform shadow-2xl">
-                Book Now - £60
+                Book Now - From £50
               </button>
             </Link>
           </div>

@@ -32,6 +32,11 @@ const Hero = () => {
                 HCPC registered audiologists
               </span>
             </div>
+            <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-xl border border-white/80 px-3.5 sm:px-4 py-2 rounded-full shadow-md">
+              <span className="text-xs sm:text-sm font-bold text-gray-800">
+                18+ Patients Only
+              </span>
+            </div>
           </div>
 
           {/* Main heading + text */}

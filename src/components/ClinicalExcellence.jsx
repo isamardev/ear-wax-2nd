@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { FaEarListen, FaDroplet, FaChildReaching, FaCircleCheck, FaLightbulb, FaUserDoctor } from 'react-icons/fa6';
+import { FaEarListen, FaDroplet, FaCircleCheck, FaLightbulb, FaUserDoctor, FaHouseMedical, FaStethoscope } from 'react-icons/fa6';
 import { HiArrowRight, HiSparkles } from 'react-icons/hi2';
 
 const tabContent = {
@@ -9,7 +9,7 @@ const tabContent = {
     title: 'Expert Microsuction Service',
     description: 'Safe and effective ear wax removal using microsuction, the gold standard in ear care. Our clinically qualified audiologists ensure your comfort and safety. No pre-treatment with olive oil required.',
     image: 'https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=800&q=80',
-    features: ['Microsuction', 'Ear Irrigation', 'Same Day', 'No Oil Needed']
+    features: ['Microsuction', 'Same Day', 'No Oil Needed']
   },
   'Our Process': {
     title: 'Simple 3-Step Process',
@@ -21,9 +21,9 @@ const tabContent = {
 
 const services = [
   { name: 'Microsuction', icon: <FaEarListen />, desc: 'Gold standard', path: '/wax-removal' },
-  { name: 'Ear Irrigation', icon: <FaDroplet />, desc: 'Water removal', path: '/ear-irrigation' },
-  { name: 'Children (5+)', icon: <FaChildReaching />, desc: 'Safe for kids', path: '/childrens-ear-care' },
   { name: 'Same Day', icon: <FaCircleCheck />, desc: 'Fast service', path: '/same-day-appointments' },
+  { name: 'Home Visits', icon: <FaHouseMedical />, desc: 'We come to you', path: '/home-visits' },
+  { name: 'Hearing Test', icon: <FaStethoscope />, desc: 'Check health', path: '/hearing-health-check' },
   { name: 'No Oil Needed', icon: <FaLightbulb />, desc: 'No prep', path: '/wax-removal' },
   { name: 'Aftercare', icon: <FaCircleCheck />, desc: 'Free advice', path: '/wax-removal' },
   { name: 'Expert Team', icon: <FaUserDoctor />, desc: 'HCPC certified', path: '/about-us' },
@@ -167,9 +167,9 @@ const ClinicalExcellence = () => {
         </AnimatePresence>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-4">
+        <div className="flex flex-wrap justify-center gap-4">
           {services.map((service, i) => (
-            <Link to={service.path} key={i}>
+            <Link to={service.path} key={i} className="flex-1 min-w-[140px] max-w-[180px]">
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}

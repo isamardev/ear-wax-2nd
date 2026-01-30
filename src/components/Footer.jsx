@@ -69,9 +69,7 @@ const Footer = () => {
             <ul className="space-y-4">
               {[
                 {name: 'Microsuction Removal', path: '/wax-removal'},
-                {name: 'Ear Irrigation', path: '/ear-irrigation'},
                 {name: 'Hearing Health Check', path: '/hearing-health-check'},
-                {name: 'Children\'s Ear Care', path: '/childrens-ear-care'},
                 {name: 'Home Visits', path: '/home-visits'}
               ].map((link) => (
                 <li key={link.name}>

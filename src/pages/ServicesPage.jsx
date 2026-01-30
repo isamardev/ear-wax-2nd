@@ -11,15 +11,7 @@ const ServicesPage = () => {
       description: 'The gold standard in ear wax removal. Safe, sterile, and effective.',
       icon: <FaEarListen />,
       features: ['No water used', 'Camera inspection included', 'Safe for perforated eardrums', 'Instant results'],
-      price: '£60'
-    },
-    {
-      id: 'irrigation',
-      title: 'Ear Irrigation',
-      description: 'Gentle water irrigation for deep-seated wax removal.',
-      icon: <FaDroplet />,
-      features: ['Warm water flush', 'Controlled pressure', 'Gentle & soothing', 'Effective for soft wax'],
-      price: '£60'
+      price: '£50'
     },
     {
       id: 'hearing-test',

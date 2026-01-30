@@ -12,9 +12,7 @@ import ReviewsPage from './pages/ReviewsPage';
 import OurProcessPage from './pages/OurProcessPage';
 import WaxRemovalPage from './pages/WaxRemovalPage';
 import SameDayPage from './pages/SameDayPage';
-import EarIrrigationPage from './pages/EarIrrigationPage';
 import HearingHealthCheckPage from './pages/HearingHealthCheckPage';
-import ChildrensEarCarePage from './pages/ChildrensEarCarePage';
 import HomeVisitsPage from './pages/HomeVisitsPage';
 import ContactPage from './pages/ContactPage';
 
@@ -39,9 +37,7 @@ function App() {
             <Route path="/wax-removal" element={<WaxRemovalPage />} />
             <Route path="/our-process" element={<OurProcessPage />} />
             <Route path="/same-day-appointments" element={<SameDayPage />} />
-            <Route path="/ear-irrigation" element={<EarIrrigationPage />} />
             <Route path="/hearing-health-check" element={<HearingHealthCheckPage />} />
-            <Route path="/childrens-ear-care" element={<ChildrensEarCarePage />} />
             <Route path="/home-visits" element={<HomeVisitsPage />} />
             
             {/* Legal / Other Generic Pages */}

@@ -10,7 +10,7 @@ const actions = [
     subtitle: 'Gold Standard',
     desc: 'Safe ear wax removal using microsuction technology',
     icon: <FaEarListen />, 
-    badge: '£65',
+    badge: 'From £50',
     stat: '10K+ Done',
     color: 'from-orange-500 to-amber-500',
     bgPattern: 'from-orange-400/20 to-amber-300/20',

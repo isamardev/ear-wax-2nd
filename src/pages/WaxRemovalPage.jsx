@@ -75,14 +75,12 @@ const WaxRemovalPage = () => {
                 </div>
 
                 <div className="bg-white/10 p-6 rounded-2xl border border-white/10">
-                  <h3 className="text-xl font-bold text-blue-400 mb-2">Ear Irrigation</h3>
+                  <h3 className="text-xl font-bold text-amber-400 mb-2">Important Notice</h3>
                   <p className="text-gray-300 text-sm mb-3">
-                    A modern, controlled version of "syringing". Uses a pulsed stream of warm water to flush out wax.
+                    Please note that we only treat patients aged 18 and over.
                   </p>
                   <ul className="text-sm space-y-2">
-                    <li className="flex items-center gap-2"><FaCheckCircle className="text-green-400" /> Effective for soft/sticky wax</li>
-                    <li className="flex items-center gap-2"><FaCheckCircle className="text-green-400" /> Gentle and soothing</li>
-                    <li className="flex items-center gap-2"><FaCheckCircle className="text-green-400" /> Carried out by experts</li>
+                    <li className="flex items-center gap-2"><FaCheckCircle className="text-green-400" /> Adult care only</li>
                   </ul>
                 </div>
               </div>

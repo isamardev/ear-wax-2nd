@@ -39,7 +39,7 @@ const PricesPage = () => {
             {
               title: "One Ear Removal",
               price: "£50",
-              desc: "Microsuction or irrigation for one ear.",
+              desc: "Microsuction for one ear.",
               popular: true,
               features: ["Otoscopy Examination", "Wax Removal (1 Ear)", "Aftercare Advice", "Free Follow-up if needed"]
             },

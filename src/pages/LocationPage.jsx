@@ -9,9 +9,6 @@ const LocationPage = ({ city, service }) => {
     if (service.includes('Microsuction')) {
       return `Looking for expert microsuction in ${city}? Our specialist clinic provides safe, comfortable, and effective ear wax removal using the latest medical technology.`;
     }
-    if (service.includes('Irrigation')) {
-      return `Professional ear irrigation services in ${city}. If you have soft wax that needs gentle removal, our ${city} clinic offers the safest water-based treatment.`;
-    }
     return `The leading provider of ear wax removal in ${city}. We offer same-day appointments and professional care to restore your hearing immediately.`;
   };
 
